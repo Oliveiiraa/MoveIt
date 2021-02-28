@@ -1,0 +1,29 @@
+.bar{
+    position: absolute;
+    width: 112px;
+    height: 100%;
+
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    filter: drop-shadow(0px 0px 60px rgba(0, 0, 0, 0.05));
+}
+
+.bar img {
+    position: absolute;
+    left: 28.57%;
+    right: 28.57%;
+    top: 3.9%;
+    bottom: 90.98%;
+}
+
+.bar .house {
+    position: absolute;
+    width: 72px;
+    height: 56px;
+    left: 0px;
+    top: 50%;
+}
