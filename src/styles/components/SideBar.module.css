@@ -27,3 +27,9 @@
     left: 0px;
     top: 50%;
 }
+
+@media(max-width: 1000px){
+    .bar {
+        display:none;
+    }
+}

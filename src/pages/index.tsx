@@ -12,13 +12,14 @@ import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { SideBar } from '../components/SideBar';
+import { ProfileModal } from '../components/ProfileModal';
 
 export default function Home(props) {
   return (
     <ChallengesProvider 
-      level={props.level} 
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}  
+    level={props.level} 
+    currentExperience={props.currentExperience}
+    challengesCompleted={props.challengesCompleted}  
     >
       <div className={styles.container}>
         <Head>

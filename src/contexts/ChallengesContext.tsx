@@ -2,6 +2,7 @@ import {createContext, useState, ReactNode, useEffect} from 'react';
 import Cookies from 'js-cookie';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import { ProfileModal } from '../components/ProfileModal';
 
 interface ChallengesProviderProps{
     children: ReactNode;
@@ -27,6 +28,7 @@ interface ChallengesContextData {
     resetChallenge: () => void;
     completeChallenge: () => void;
     closeModal: () => void;
+    closeProfileModal: () => void;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
@@ -38,6 +40,9 @@ export function ChallengesProvider({children, ...rest}:ChallengesProviderProps){
 
     const [activeChallenge, setActiveChallenge] = useState(null);
     const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
+    const [profileModalOpen, setProfileModalOpen] = useState(true);
+
+    const [userName, setUserName] = useState();
 
     const experienceToNextLevel = Math.pow((level + 1) * 4 ,2)
 
@@ -50,6 +55,10 @@ export function ChallengesProvider({children, ...rest}:ChallengesProviderProps){
         Cookies.set('currentExperience', String(currentExperience));
         Cookies.set('challengesCompleted', String(challengesCompleted));
     },[level, currentExperience, challengesCompleted])
+
+    function userNameSet(props){
+        console.log(props);
+    }
 
     function levelUp(){
       setLevel(level + 1);
@@ -77,6 +86,10 @@ export function ChallengesProvider({children, ...rest}:ChallengesProviderProps){
 
     function closeModal(){
         setIsLevelUpModalOpen(false);
+    }
+
+    function closeProfileModal(){
+        setProfileModalOpen(false);
     }
 
     function completeChallenge(){
@@ -110,10 +123,11 @@ export function ChallengesProvider({children, ...rest}:ChallengesProviderProps){
                 levelUp,
                 resetChallenge,
                 completeChallenge,
-                closeModal
+                closeModal,
+                closeProfileModal
             }}>
             {children}
-
+            {profileModalOpen && <ProfileModal />}
             {isLevelUpModalOpen && <LevelUpModal/>}
         </ChallengesContext.Provider>
     );

@@ -27,3 +27,9 @@
 .profileContainer div p img {
     margin-right: 0.5rem;
 }
+
+@media(max-width: 1000px){
+    .profileContainer {
+        margin-top: 50px;
+    }
+}
