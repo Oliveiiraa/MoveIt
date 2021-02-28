@@ -5,10 +5,6 @@ import styles from '../styles/components/ProfileModal.module.css';
 export function ProfileModal() {
     const {closeProfileModal} = useContext(ChallengesContext);
 
-    function handleSubmit(event) {
-        event.preventDefault();
-    }
-
     return(
         <div className={styles.overlay}>
             <div className={styles.container}>

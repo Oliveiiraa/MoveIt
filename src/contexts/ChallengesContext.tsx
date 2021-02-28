@@ -42,8 +42,6 @@ export function ChallengesProvider({children, ...rest}:ChallengesProviderProps){
     const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
     const [profileModalOpen, setProfileModalOpen] = useState(true);
 
-    const [userName, setUserName] = useState();
-
     const experienceToNextLevel = Math.pow((level + 1) * 4 ,2)
 
     useEffect(()=>{
@@ -55,10 +53,6 @@ export function ChallengesProvider({children, ...rest}:ChallengesProviderProps){
         Cookies.set('currentExperience', String(currentExperience));
         Cookies.set('challengesCompleted', String(challengesCompleted));
     },[level, currentExperience, challengesCompleted])
-
-    function userNameSet(props){
-        console.log(props);
-    }
 
     function levelUp(){
       setLevel(level + 1);
